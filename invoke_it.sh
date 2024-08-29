@@ -199,8 +199,8 @@ function main() {
     local api_host=$(printf ${api_url} | awk -F/ '{print $3}')
     local api_uri=$(printf ${api_url} | grep / | cut -d/ -f4-)
 
-    local aws_region=$(cut -d'.' -f3 <<<"${api_host}")
-    local aws_service=$(cut -d'.' -f2 <<<"${api_host}")
+    local aws_region=$(cut -d'.' -f2 <<<"${api_host}")
+    local aws_service=$(cut -d'.' -f3 <<<"${api_host}")
 
     local algorithm="AWS4-HMAC-SHA256"
     local credential_scope="${today}/${aws_region}/${aws_service}/aws4_request"
